@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"net/url"
 
@@ -44,7 +45,7 @@ func (l *Lot) streetviewableLocation() string {
 	// search google for lot address
 	err := l.geoCodeFromAddress()
 	if err != nil {
-		debug.Printf("%v", err)
+		log.Printf("%v", err)
 	}
 
 	// if we had lat&long we could use them here to doublecheck or instead, but we don't so oh well.

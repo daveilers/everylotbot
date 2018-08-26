@@ -8,6 +8,8 @@ type Service struct {
 	UserName          string
 	AccessToken       string
 	AccessTokenSecret string
+	DBDriver          string
+	DBDSN             string
 }
 
 type Lot struct {

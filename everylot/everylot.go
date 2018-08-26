@@ -2,7 +2,6 @@ package everylot
 
 import (
 	"fmt"
-	"log"
 	"os"
 
 	_ "github.com/joho/godotenv/autoload"
@@ -19,27 +18,17 @@ func init() {
 		UserName:          os.Getenv("USER"),
 		AccessToken:       os.Getenv("ACCESS_TOKEN"),
 		AccessTokenSecret: os.Getenv("ACCESS_TOKEN_SECRET"),
+		DBDriver:          os.Getenv("DB_DRIVER"),
+		DBDSN:             os.Getenv("DB_DSN"),
 	}
 }
 
-func Next() {
-	// return next non-empty parcel number's streetview tweet
-
-	//SELECT * FROM lots WHERE tweeted = 0 ORDER BY id LIMIT 1;
-
-}
-
-func ID(parcelno int) {
-	// id, err := lot.PostTweet()
-	// if err != nil {
-	// 	log.Fatalf("Broke: %v", err)
-	// }
-	// fmt.Println(id)
-}
-
-var debug = &log.Logger{}
-var info = &log.Logger{}
+// var debug = &log.Logger{}
+// var info = &log.Logger{}
 
 func (l *Lot) AddressString() string {
+	if l == nil {
+		panic("That's not a lot")
+	}
 	return fmt.Sprintf("%s, %s %s", l.Address, l.City, l.State)
 }
