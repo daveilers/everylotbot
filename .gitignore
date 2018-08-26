@@ -17,3 +17,6 @@ dist
 *.shx
 *.dbf
 *.shp.xml
+
+vendor/
+.env
